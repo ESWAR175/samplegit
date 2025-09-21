@@ -1,0 +1,44 @@
+pipeline {
+    agent { label 'any other server' } 
+
+    parameters {
+        string(name: 'PARAM1', defaultValue: 'Value1', description: 'Parameter for Stage 1')
+        string(name: 'PARAM2', defaultValue: 'Value2', description: 'Parameter for Stage 2')
+        string(name: 'PARAM3', defaultValue: 'Value3', description: 'Parameter for Stage 3')
+        string(name: 'PARAM4', defaultValue: 'Value4', description: 'Parameter for Stage 4')
+        string(name: 'PARAM5', defaultValue: 'Value5', description: 'Parameter for Stage 5')
+    }
+
+    stages {
+        stage('Stage 1') {
+            steps {
+                echo "Using PARAM1: ${params.PARAM1}"
+                // Example: sh "echo ${params.PARAM1} > stage1_output.txt"
+            }
+        }
+        stage('Stage 2') {
+            steps {
+                echo "Using PARAM2: ${params.PARAM2}"
+                // Add steps as needed
+            }
+        }
+        stage('Stage 3') {
+            steps {
+                echo "Using PARAM3: ${params.PARAM3}"
+                // Add steps as needed
+            }
+        }
+        stage('Stage 4') {
+            steps {
+                echo "Using PARAM4: ${params.PARAM4}"
+                // Add steps as needed
+            }
+        }
+        stage('Stage 5') {
+            steps {
+                echo "Using PARAM5: ${params.PARAM5}"
+                // Add steps as needed
+            }
+        }
+    }
+}
